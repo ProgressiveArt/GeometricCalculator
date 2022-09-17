@@ -1,4 +1,5 @@
 using Autofac;
+using GeometricCalculator.Application.SecondSolution;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +33,7 @@ internal sealed class Startup
 
     public void ConfigureContainer(ContainerBuilder builder)
     {
+        builder.RegisterModule<SecondSolutionGeometricCalculatorModule>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
