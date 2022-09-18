@@ -15,7 +15,20 @@
 - ##### Для добавления новой фигуры необходимо добавить её модель, унаследовав интерфейс IFigure, затем создать класс стратегии для фигуры, наследующий  : BaseCalculateStrategy<TFigure> где TFigure - новая фигура
 - ##### Для вычисления площади вызвать метод CalculateArea из класса Calculator
 ###### p.s. без DI не работает, IoC Container Autofac
-
+###### Для работы библиотеки нужно добавить ссылку на неё в проект
+```sh
+    <ItemGroup>
+      <ProjectReference Include="..\GeometricCalculator.Application.FirstSolution\GeometricCalculator.Application.FirstSolution.csproj" />
+      <ProjectReference Include="..\GeometricCalculator.Application.SecondSolution\GeometricCalculator.Application.SecondSolution.csproj" />
+    </ItemGroup>
+```
+Дополнительно для второго решения нужно зарегистрировать его в контейнере в классе Startup
+```sh
+    public void ConfigureContainer(ContainerBuilder builder)
+    {
+        builder.RegisterModule<SecondSolutionGeometricCalculatorModule>();
+    }
+```
 # Задание 2
 В базе данных MS SQL Server есть продукты и категории. Одному продукту может соответствовать много категорий,
 в одной категории может быть много продуктов. Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории».
