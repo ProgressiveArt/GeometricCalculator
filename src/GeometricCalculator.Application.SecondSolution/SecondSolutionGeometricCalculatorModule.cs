@@ -5,7 +5,7 @@ using Module = Autofac.Module;
 
 namespace GeometricCalculator.Application.SecondSolution;
 
-public class SecondSolutionGeometricCalculatorModule : Module
+public sealed class SecondSolutionGeometricCalculatorModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {

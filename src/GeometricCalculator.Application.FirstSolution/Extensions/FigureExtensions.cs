@@ -1,14 +1,14 @@
 ﻿using System;
+using GeometricCalculator.Core.Figures.TwoDimensionalFigures;
 using GeometricCalculator.Core.Figures.TwoDimensionalFigures.ArbitraryPolygon;
 using GeometricCalculator.Core.Figures.TwoDimensionalFigures.Circle;
 using GeometricCalculator.Core.Figures.TwoDimensionalFigures.Triangle;
-using GeometricCalculator.Core.Interfaces;
 
 namespace GeometricCalculator.Application.FirstSolution.Extensions;
 
 public static class FigureExtensions
 {
-    public static double CalculateArea(this IFigure figure, int? roundUpTo = null)
+    public static double CalculateArea(this Figure figure, int? roundUpTo = null)
     {
         return figure switch
         {

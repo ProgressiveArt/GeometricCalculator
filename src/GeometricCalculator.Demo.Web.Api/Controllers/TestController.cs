@@ -14,7 +14,7 @@ namespace GeometricCalculator.Demo.Web.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TestController : Controller
+public sealed class TestController : Controller
 {
     private readonly Calculator _calculator;
 

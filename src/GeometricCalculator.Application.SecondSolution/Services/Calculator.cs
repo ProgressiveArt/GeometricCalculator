@@ -5,7 +5,7 @@ using GeometricCalculator.Core.Interfaces;
 
 namespace GeometricCalculator.Application.SecondSolution.Services;
 
-public class Calculator : IService
+public sealed class Calculator : IService
 {
     private readonly CalculateStrategyProvider _calculateStrategyProvider;
 

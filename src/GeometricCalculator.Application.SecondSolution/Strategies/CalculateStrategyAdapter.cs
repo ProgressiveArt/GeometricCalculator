@@ -2,7 +2,7 @@
 
 namespace GeometricCalculator.Application.SecondSolution.Strategies;
 
-internal class CalculateStrategyAdapter : ICalculateStrategy
+internal sealed class CalculateStrategyAdapter : ICalculateStrategy
 {
     private readonly object _strategy;
 

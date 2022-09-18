@@ -14,7 +14,7 @@ public sealed class Circle : Figure
         }
     }
 
-    public double Radius { get; set; }
+    public double Radius { get; }
 
     protected override bool IsValid()
     {

@@ -10,7 +10,7 @@ public sealed class ArbitraryPolygon : Figure
 
         if (!IsValid())
         {
-            throw new ArgumentException("Количество вершин многоугольника должно быть не менее трех");
+            throw new ArgumentException("Vertices count must be greater then or equal 3");
         }
     }
 
