@@ -31,9 +31,9 @@ public sealed class Triangle : Figure
             .ToArray();
 
         var isCorrectValues = sides.All(x => x > 0);
-        var isValidSides = A <= B + C &&
-                           B <= A + C &&
-                           C <= A + B;
+        var isValidSides = A < B + C &&
+                           B < A + C &&
+                           C < A + B;
 
         return isCorrectValues && isValidSides;
     }

@@ -1,8 +1,5 @@
 using System;
-using Autofac;
 using GeometricCalculator.Application.FirstSolution.Extensions;
-using GeometricCalculator.Application.SecondSolution.Services;
-using GeometricCalculator.Application.Tests.Fixtures;
 using GeometricCalculator.Core.Figures;
 using GeometricCalculator.Core.Figures.TwoDimensionalFigures.ArbitraryPolygon;
 using GeometricCalculator.Core.Figures.TwoDimensionalFigures.Circle;
@@ -11,7 +8,8 @@ using Xunit;
 
 namespace GeometricCalculator.Application.Tests.Tests;
 
-public class PolygonTest
+public class FigureTest
+    // Не вышло настроить регистрацию в контейнере, чтобы написать тесты для SecondSolution
     // : IClassFixture<DependencySetupFixture>
 {
     // private readonly Calculator _calculator;
@@ -34,17 +32,14 @@ public class PolygonTest
     }
 
     [Fact]
-    public void compare_triangle_area_with_polygon_area_special_case()
+    public void calculate_circle_area()
     {
-        const double expectedValue = 9;
-        var triangle = new Triangle(4.243, 6, 4.243);
-        var arbitraryPolygon = new ArbitraryPolygon(new Vertex(-3, 0), new Vertex(0, 3), new Vertex(0, -3));
+        const double expectedValue = 50.27;
+        var testCircle = new Circle(4);
 
-        var triangleArea = triangle.CalculateArea(2);
-        var arbitraryPolygonArea = arbitraryPolygon.CalculateArea(2);
+        var firstSolutionArea = testCircle.CalculateArea(2);
 
-        Assert.Equal(expectedValue, triangleArea);
-        Assert.Equal(expectedValue, arbitraryPolygonArea);
+        Assert.Equal(firstSolutionArea, expectedValue);
     }
 
     [Fact]
@@ -63,4 +58,17 @@ public class PolygonTest
         Assert.Equal(TriangleTypeByAngles.Acute, versatileAcuteTriangle.TypeByAngles);
     }
 
+    [Fact]
+    public void compare_triangle_area_with_polygon_area_special_case()
+    {
+        const double expectedValue = 9;
+        var triangle = new Triangle(4.243, 6, 4.243);
+        var arbitraryPolygon = new ArbitraryPolygon(new Vertex(-3, 0), new Vertex(0, 3), new Vertex(0, -3));
+
+        var triangleArea = triangle.CalculateArea(2);
+        var arbitraryPolygonArea = arbitraryPolygon.CalculateArea(2);
+
+        Assert.Equal(expectedValue, triangleArea);
+        Assert.Equal(expectedValue, arbitraryPolygonArea);
+    }
 }
